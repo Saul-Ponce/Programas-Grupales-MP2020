@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ej9;
+package ejemplo10;
 
 import static java.lang.Math.pow;
 
@@ -28,7 +28,7 @@ public class Ej9 {
     double P=0.25;
     double Q=0.75;
     double p[] = {0,0,0,0};
-                //0,1,2,3
+                
     double SUM[]={0,0,0,0};
     int I;
     

@@ -27,7 +27,14 @@ Integer norm = 1024, sem=835 , sum = 993, prob = 0, mult = 801, max = 0, cont = 
         jTextField4.setText(""+mult);
     }
 
-    
+    private boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;  
+	}
+}
     
     
     /**
@@ -75,8 +82,10 @@ Integer norm = 1024, sem=835 , sum = 993, prob = 0, mult = 801, max = 0, cont = 
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel4.setText("LA PROBABILIDAD DE QUE CAIGA EN UN RECIPIENTE DIFERENTE ES:");
@@ -111,14 +120,11 @@ Integer norm = 1024, sem=835 , sum = 993, prob = 0, mult = 801, max = 0, cont = 
                         .addComponent(txtProb, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtSimulaciones)))
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtSimulaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
                                 .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -136,7 +142,8 @@ Integer norm = 1024, sem=835 , sum = 993, prob = 0, mult = 801, max = 0, cont = 
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,17 +195,17 @@ Integer norm = 1024, sem=835 , sum = 993, prob = 0, mult = 801, max = 0, cont = 
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
-        
-
-        max = Integer.parseInt(txtSimulaciones.getText());
-        if (txtSimulaciones.getText().trim().isEmpty() || max < 100 || (max * 3) >= norm) {
-            JOptionPane.showInputDialog(null, "Datos incorrectos", "Información", JOptionPane.ERROR_MESSAGE);
-            txtProb.setText("");
+         if (txtSimulaciones.getText().trim().isEmpty() || Integer.parseInt(txtSimulaciones.getText()) < 100 || (Integer.parseInt(txtSimulaciones.getText()) * 3) >= norm || !isNumeric(txtSimulaciones.getText())) {
+            JOptionPane.showMessageDialog(null, "Datos incorrectos", "Información", JOptionPane.ERROR_MESSAGE);
             txtSimulaciones.setText("");
+            txtProb.setText("");
             jTextArea1.setText("");
+            txtSimulaciones.requestFocus();
         } else {
+            max = Integer.parseInt(txtSimulaciones.getText());
             for (int i = 1; i <= max; i++) {
-
+                jTextArea1.append("-----------------------------------------------------");
+                jTextArea1.append("\n");
                 jTextArea1.append("Ensayo No. " + i);
                 jTextArea1.append("\n");
                 for (int j = 1; j <= 3; j++) {
@@ -207,7 +214,7 @@ Integer norm = 1024, sem=835 , sum = 993, prob = 0, mult = 801, max = 0, cont = 
                     rnd = (double) sem / norm;
                     truncar = (rnd * 5.0) + 1.0d;
                     Rec[j] = Integer.parseInt("" + String.valueOf(truncar).charAt(0));
-                    jTextArea1.append("  " + cont + "   Pelota en el recipiente No: " + Rec[j]);
+                    jTextArea1.append("   Pelota en el recipiente No: " + Rec[j]);
                     jTextArea1.append("\n");
                 }
                 if (Rec[1] != Rec[2] && Rec[3] != Rec[2] && Rec[3] != Rec[1]) {

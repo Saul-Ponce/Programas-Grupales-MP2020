@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejemplo10;
+package ejemplo11;
 
 import static java.lang.Math.pow;
 
@@ -11,7 +11,7 @@ import static java.lang.Math.pow;
  *
  * @author Saul Ponce
  */
-public class Ej9 {
+public class Ej11 {
 
     /**
      * @param args the command line arguments
@@ -35,7 +35,7 @@ public class Ej9 {
     int test=0;
     
     p[0]=pow(Q,N);//0.31640625
-        System.out.println("p[0]:"+p[0]);
+        //System.out.println("p[0]:"+p[0]);
     
         for (int i = 1; i < N; i++) {
             //System.out.println("N: "+N+", i: "+i+", P: "+P+", Q: "+Q+", p[i-1]: "+p[i-1]);

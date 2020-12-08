@@ -32,6 +32,10 @@ public class vista extends javax.swing.JFrame {
     public vista() {
         initComponents();
         norm.setText(NORM+"");
+        suma.setText(SUMA+"");
+        mult.setText(MULT+"");
+        
+        max.setText(MAX+"");
         frecuencia=new int[6];
         frecuenciaA = new int[6];
         p[0]=pow(Q,N);
@@ -39,6 +43,7 @@ public class vista extends javax.swing.JFrame {
         SUM[0]=p[0];
         probabilidadesAcumuladas();
         SEM=1500;
+        sem.setText(SEM+"");
         I=0;
         random();
         for (int i = 0; i < 6; i++) {

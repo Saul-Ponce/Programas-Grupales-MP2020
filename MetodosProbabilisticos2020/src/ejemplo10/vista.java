@@ -34,8 +34,11 @@ public class vista extends javax.swing.JFrame {
         norm.setText(NORM+"");
         suma.setText(SUMA+"");
         mult.setText(MULT+"");
-        
         max.setText(MAX+"");
+        n.setText(""+N);
+        valorp.setText(""+P);
+        q.setText(""+Q);
+        
         frecuencia=new int[6];
         frecuenciaA = new int[6];
         p[0]=pow(Q,N);
@@ -58,18 +61,18 @@ public class vista extends javax.swing.JFrame {
     
     void probabilidades(){
         for (int i = 1; i < N; i++) {
-            //System.out.println("N: "+N+", i: "+i+", P: "+P+", Q: "+Q+", p[i-1]: "+p[i-1]);
+           
             
             p[i]=(((double)((N-i)+1)/i)*(P/Q)*p[i-1]);
-            System.out.println("p["+i+"]: "+p[i]);
-            //System.out.println("-------------------------------------------------------------------------");
+           
+          
         }
     }
     
     void probabilidadesAcumuladas(){
         for (int j = 1; j < N; j++) {
             SUM[j]=SUM[j-1]+p[j];
-                System.out.println("SUM["+j+"]"+SUM[j]);
+                
             }
     }
     
@@ -83,7 +86,6 @@ public class vista extends javax.swing.JFrame {
                     while (RND >= SUM[i]) {
                         i++;
                     }
-                    System.out.println("i:"+i);
                      frecuencia(i);
                 }
     }
@@ -129,42 +131,45 @@ public class vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        norm = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        suma = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        mult = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        sem = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         max = new javax.swing.JLabel();
-        sem = new javax.swing.JLabel();
-        mult = new javax.swing.JLabel();
-        suma = new javax.swing.JLabel();
-        norm = new javax.swing.JLabel();
+        n = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        q = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        valorp = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("NORM: ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 100, -1, -1));
 
         jLabel11.setText("SUMA: ");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 100, -1, -1));
 
         jLabel13.setText("MULT: ");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 100, -1, -1));
 
         jLabel15.setText("SEM: ");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 100, -1, -1));
 
         jLabel17.setText("MAX: ");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 100, -1, -1));
-        getContentPane().add(max, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 50, 14));
-        getContentPane().add(sem, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 100, 50, 14));
-        getContentPane().add(mult, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 100, 50, 14));
-        getContentPane().add(suma, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 50, 14));
-        getContentPane().add(norm, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 100, 50, 14));
+
+        jLabel18.setText("N:");
+
+        jLabel19.setText("Q:");
+
+        jLabel20.setText("P:");
 
         jTable2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -191,20 +196,81 @@ public class vista extends javax.swing.JFrame {
         jTable2.setRowHeight(60);
         jScrollPane2.setViewportView(jTable2);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 639, 390));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9)
+                        .addGap(6, 6, 6)
+                        .addComponent(norm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addGap(6, 6, 6)
+                        .addComponent(suma, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel13)
+                        .addGap(6, 6, 6)
+                        .addComponent(mult, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)
+                        .addGap(6, 6, 6)
+                        .addComponent(sem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17)
+                        .addGap(6, 6, 6)
+                        .addComponent(max, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel18)
+                        .addGap(6, 6, 6)
+                        .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20)
+                        .addGap(6, 6, 6)
+                        .addComponent(valorp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)
+                        .addGap(6, 6, 6)
+                        .addComponent(q, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(q, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(norm, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(suma, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(mult, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(sem, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(max, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(valorp, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 670, 510));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 780, 510));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Ejercicio 2");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,18 +311,25 @@ public class vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel max;
     private javax.swing.JLabel mult;
+    private javax.swing.JLabel n;
     private javax.swing.JLabel norm;
+    private javax.swing.JLabel q;
     private javax.swing.JLabel sem;
     private javax.swing.JLabel suma;
+    private javax.swing.JLabel valorp;
     // End of variables declaration//GEN-END:variables
 }

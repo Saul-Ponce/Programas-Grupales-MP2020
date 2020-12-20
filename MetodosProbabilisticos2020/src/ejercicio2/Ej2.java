@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejemplo10;
+package ejercicio2;
 
 import static java.lang.Math.pow;
 
@@ -11,7 +11,7 @@ import static java.lang.Math.pow;
  *
  * @author Saul Ponce
  */
-public class Ej10 {
+public class Ej2 {
 
     /**
      * @param args the command line arguments
